@@ -12,7 +12,7 @@ const PopupVs = ({correctLetters, wrongLetters, selectedWord, setPlayable, score
     finalMessage = 'Congratulations! You won! 😃\nYour final score is' + score;
     playable = false;
     // add POST to add user score and status of win
-    fetch(`http://ec2-54-82-112-252.compute-1.amazonaws.com:5000/add_user_score?guesserUser=${user}&Score=${score}&Status=win`, {
+    fetch(`https://ec2-54-82-112-252.compute-1.amazonaws.com:5000/add_user_score?guesserUser=${user}&Score=${score}&Status=win`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json'},
     })
@@ -21,7 +21,7 @@ const PopupVs = ({correctLetters, wrongLetters, selectedWord, setPlayable, score
     finalMessageRevealWord = `...the word was: ${selectedWord}`;
     playable = false;
     // add POST to add user score and status of lose
-    fetch(`http://ec2-54-82-112-252.compute-1.amazonaws.com:5000/add_user_score?guesserUser=${user}&Score=0&Status=lose`, {
+    fetch(`https://ec2-54-82-112-252.compute-1.amazonaws.com:5000/add_user_score?guesserUser=${user}&Score=0&Status=lose`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json'},
     })

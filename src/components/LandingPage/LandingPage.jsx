@@ -43,7 +43,7 @@ export const LandingPage = () => {
             const {word} = document.forms[0];
             const username = localStorage.getItem("username");
 
-            axios.post(`http://ec2-54-82-112-252.compute-1.amazonaws.com:5000/create_game?username=${username}&Word=${word.value}`)
+            axios.post(`https://ec2-54-82-112-252.compute-1.amazonaws.com:5000/create_game?username=${username}&Word=${word.value}`)
                 .then(response => {
                     setSessionId(response.data.SessionId);
                 }).catch(err => console.error(err));

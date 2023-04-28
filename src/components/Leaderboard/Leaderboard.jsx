@@ -6,7 +6,7 @@ import axios from "axios";
 import { Link } from 'react-router-dom'
 
 export const Leaderboard = () => {
-    const API = "http://ec2-54-82-112-252.compute-1.amazonaws.com:5000/leaderboard";
+    const API = "https://ec2-54-82-112-252.compute-1.amazonaws.com:5000/leaderboard";
 
     const [data, setData] = useState([]);
 
