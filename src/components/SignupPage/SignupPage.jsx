@@ -35,7 +35,7 @@ export const SignupPage = () => {
                     <input type="text" name="fname" required />
                 </div>
                 <div>
-                    <input type="submit" />
+                    <button type="submit">Submit</button>
                 </div>
             </form>
             Existing user? <Link to="/login">Login</Link>
