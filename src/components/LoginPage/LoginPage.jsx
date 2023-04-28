@@ -42,7 +42,7 @@ export const LoginPage = () => {
                     <input type="password" name="pass" required />
                 </div>
                 <div style={{ marginTop: '10px'}}>
-                    <input type="submit" />
+                    <button type="submit">Submit</button>
                 </div>
             </form>
             <div style={{ marginTop: '10px'}}>
