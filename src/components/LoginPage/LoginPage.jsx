@@ -19,11 +19,12 @@ export const LoginPage = () => {
                 window.location.href="/";
             }
         }).catch(err => {
-            if(err.response.status == 400) {
-                setErrorMsg("Invalid credentials! Please try again")
-            } else {
-                console.error(err)
-            }
+            // if(err.response.status == 400) {
+            //     setErrorMsg("Invalid credentials! Please try again")
+            // } else {
+            //     console.error(err)
+            // }
+            console.error(err)
         })
     };
 
