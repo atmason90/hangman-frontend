@@ -67,6 +67,7 @@ function GameComputer() {
   return (
     <>
       <Header />
+      <h3 style={{ marginBottom: '20px'}}>Score: {score}</h3>
       <div className="game-container">
         <Figure wrongLetters={wrongLetters} />
         <WrongLetters wrongLetters={wrongLetters} />

@@ -10,10 +10,12 @@ const PopupComp = ({correctLetters, wrongLetters, selectedWord, setPlayable, pla
   if( checkWin(correctLetters, wrongLetters, selectedWord) === 'win' ) {
     finalMessage = 'Congratulations! You won! 😃 \nYour final score is ' + score;
     playable = false;
+    // add POST to add user score and status of win
   } else if( checkWin(correctLetters, wrongLetters, selectedWord) === 'lose' ) {
     finalMessage = 'Unfortunately you lost. 😕';
     finalMessageRevealWord = `...the word was: ${selectedWord}`;
     playable = false;
+    // add POST to add user score and status of lose
   }
 
   useEffect(() => {
