@@ -21,15 +21,18 @@ export const LandingPage = () => {
 
     const gamePage = () => {
         return (
+            <>
             <div>
-                Choose your opponent
+                <h4>Choose your opponent</h4>
                 <Link to="/compgame"><button>Computer</button></Link>
                 <Link to="/vsgame"><button>Friend</button></Link>
                 <button onClick={handleLogout}>Logout</button>
-                <div>
-                    Check your position on the <Link to="/leaderboard">Leaderboard</Link>
-                </div>
             </div>
+            <br />
+            <div>
+              Check your position on the <Link to="/leaderboard">Leaderboard</Link>
+            </div>
+            </>
         );
     }
 
