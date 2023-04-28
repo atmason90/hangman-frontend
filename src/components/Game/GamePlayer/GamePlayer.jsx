@@ -7,67 +7,54 @@ import Popup from '../Pupup';
 import Notification from '../Notification';
 import { showNotification as show, checkWin } from '../../../helpers/helpers';
 // import axios from 'axios'
-    
-// get info required to get_session
-const user = 'johndoe'
-const guesser = 'david'
-const session = 6
-let selectedWord;
 
-// -----------THIS WORKS------------
-// fetch('http://ec2-54-82-112-252.compute-1.amazonaws.com:5000/create_game', {
-//     method: 'POST',
-//     headers: { 'Content-Type': 'application/json'},
-//     body: JSON.stringify({
-//         username: 'johndoe',
-//         Word: 'hello'
-//     })
-// })
-// .then((response) => response.json())
-// .then((data) => console.log(data))
-// ----------------------------------
-
-// fetch('https://l6hxmsh3jd.execute-api.us-east-1.amazonaws.com/getLeaderBoard')
-// .then((response) => response.json())
-// .then((data) => {
-//     console.log(data)
-// })
-
-fetch(`http://ec2-54-82-112-252.compute-1.amazonaws.com:5000/get_session?SessionId=${session}&username=${user}&guesserUser=${guesser}`, {
-    method: 'GET',
-    headers: { 'Content-Type': 'application/json'}
-})
-  .then((response) => response.json())
-  .then((data) => {
-    console.log(data);
-    selectedWord = data.Word;
-  })
-  .catch((error) => {
-    console.error('Error:', error);
-  });
-
-// fetch(`http://ec2-54-82-112-252.compute-1.amazonaws.com:5000/get_session`, {
-//     method: 'GET',
-//     headers: {
-//         'Content-Type': 'application/json'
-//     },
-//     body: JSON.stringify({
-//         SessionId: session,
-//         username: user,
-//         guesserUser: guesser
-//     })
-// })
-// .then((response) => response.json())
-// .then((data) => {
-//     console.log(data)
-//     selectedWord = data.Word
-// })
 
 function GamePlayer() {
     const [playable, setPlayable] = useState(true);
     const [correctLetters, setCorrectLetters] = useState([]);
     const [wrongLetters, setWrongLetters] = useState([]);
     const [showNotification, setShowNotification] = useState(false);
+    const [selectedWord, setSelectedWord] = useState('')
+
+    // get info required to get_session
+
+    // const user = 'johndoe'
+    // const guesser = 'david'
+    // const session = 6
+
+    // fetch(`http://ec2-54-82-112-252.compute-1.amazonaws.com:5000/get_session?SessionId=${session}&username=${user}&guesserUser=${guesser}`, {
+    //     method: 'GET',
+    //     headers: { 'Content-Type': 'application/json'}
+    // })
+    // .then((response) => response.json())
+    // .then((data) => {
+    //     console.log(data);
+    //     setSelectedWord = data.Word;
+    //     console.log(selectedWord)
+    // })
+    // .catch((error) => {
+    //     console.error('Error:', error);
+    // });
+
+    useEffect(() => {
+        const user = 'johndoe';
+        const guesser = 'david';
+        const session = 6;
+
+        fetch(`http://ec2-54-82-112-252.compute-1.amazonaws.com:5000/get_session?SessionId=${session}&username=${user}&guesserUser=${guesser}`, {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' }
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data);
+            setSelectedWord(data.Word);
+            console.log(selectedWord);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+    }, [selectedWord]);
 
     useEffect(() => {
     const handleKeydown = event => {
@@ -92,18 +79,8 @@ function GamePlayer() {
     window.addEventListener('keydown', handleKeydown);
 
     return () => window.removeEventListener('keydown', handleKeydown);
-    }, [correctLetters, wrongLetters, playable]);
+    }, [correctLetters, wrongLetters, playable, selectedWord]);
 
-    function playAgain() {
-    setPlayable(true);
-
-    // Empty Arrays
-    setCorrectLetters([]);
-    setWrongLetters([]);
-
-    
-    // selectedWord = ;
-    }
 
     return (
     <>
@@ -113,7 +90,7 @@ function GamePlayer() {
         <WrongLetters wrongLetters={wrongLetters} />
         <Word selectedWord={selectedWord} correctLetters={correctLetters} />
         </div>
-        <Popup correctLetters={correctLetters} wrongLetters={wrongLetters} selectedWord={selectedWord} setPlayable={setPlayable} playAgain={playAgain} />
+        <Popup correctLetters={correctLetters} wrongLetters={wrongLetters} selectedWord={selectedWord} setPlayable={setPlayable} />
         <Notification showNotification={showNotification} />
     </>
     );
