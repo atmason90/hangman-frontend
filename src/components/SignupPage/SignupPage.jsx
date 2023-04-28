@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export const SignupPage = () => {
     const handleSubmit = (event) => {
         // Prevent page reload
@@ -5,13 +7,10 @@ export const SignupPage = () => {
 
         const { uname, pass, fname } = document.forms[0];
 
-        fetch("http://ec2-54-82-112-252.compute-1.amazonaws.com:5000/login", {
-            method: "post",
-            body: {
-                "username": uname.value,
-                "password": pass.value,
-                "full_name": fname.value
-            }
+        axios.post("http://ec2-54-82-112-252.compute-1.amazonaws.com:5000/create_user", {
+            "username": uname.value,
+            "password": pass.value,
+            "full_name": fname.value
         }).then(response => response.json()).then(data => {
             localStorage.setItem("username", data.username);
             localStorage.setItem("userid", data.UserId);
