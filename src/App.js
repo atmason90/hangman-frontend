@@ -4,7 +4,9 @@ import { Routes, Route } from 'react-router-dom';
 import {LoginPage} from './components/LoginPage/LoginPage';
 import { SignupPage } from './components/SignupPage/SignupPage';
 // import { Leaderboard } from './components/Leaderboard/Leaderboard';
+
 import GameComputer from './components/Game/GameComputer/GameComputer';
+// import GameComputer from './components/Game/GameComputer/GameComputer';
 import GamePlayer from './components/Game/GamePlayer/GamePlayer';
 import { LandingPage } from './components/LandingPage/LandingPage';
 

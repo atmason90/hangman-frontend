@@ -24,6 +24,7 @@ const Popup = ({correctLetters, wrongLetters, selectedWord, setPlayable, playAga
       <div className="popup">
         <h2>{finalMessage}</h2>
         <h3>{finalMessageRevealWord}</h3>
+        {/* need this to say view leaderboard and go to the leaderboard component */}
         <button onClick={playAgain}>Play Again</button>
       </div>
     </div>
