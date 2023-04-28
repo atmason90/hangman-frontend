@@ -8,7 +8,7 @@ export const SignupPage = () => {
 
         const { uname, pass, fname } = document.forms[0];
 
-        axios.post(`https://ec2-54-82-112-252.compute-1.amazonaws.com:5000/create_user?username=${uname.value}&password=${pass.value}&full_name=${fname.value}`).then(response => {
+        axios.post(`http://ec2-54-82-112-252.compute-1.amazonaws.com:5000/create_user?username=${uname.value}&password=${pass.value}&full_name=${fname.value}`).then(response => {
             if(response.status == 200) {    
                 localStorage.setItem("username", response.data.username);
                 localStorage.setItem("userid", response.data.UserId);

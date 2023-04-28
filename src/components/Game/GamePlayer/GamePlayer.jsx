@@ -23,7 +23,7 @@ function GamePlayer() {
     const session = localStorage.getItem("sessionId");
 
     fetch(
-      `https://ec2-54-82-112-252.compute-1.amazonaws.com:5000/get_session?SessionId=${session}&username=${user}&guesserUser=${guesser}`,
+      `http://ec2-54-82-112-252.compute-1.amazonaws.com:5000/get_session?SessionId=${session}&username=${user}&guesserUser=${guesser}`,
       {
         method: "GET",
         headers: { "Content-Type": "application/json" },
