@@ -6,29 +6,48 @@ import Word from '../Word';
 import Popup from '../Pupup';
 import Notification from '../Notification';
 import { showNotification as show, checkWin } from '../../../helpers/helpers';
-import axios from 'axios'
+// import axios from 'axios'
     
 // get info required to get_session
 const user = 'johndoe'
 const guesser = 'david'
-const session = 1
+const session = 6
 let selectedWord;
 
-fetch(`http://ec2-54-82-112-252.compute-1.amazonaws.com:5000/get_session?SessionId=${session}&username=${user}&guesserUser=${guesser}`)
-//     body: {
-//         SessionId: session,
-//         username: user,
-//         guesserUser: guesser 
-//     },
+// fetch('https://l6hxmsh3jd.execute-api.us-east-1.amazonaws.com/getLeaderBoard')
+// .then((response) => response.json())
+// .then((data) => {
+//     console.log(data)
+// })
+
+fetch(`http://ec2-54-82-112-252.compute-1.amazonaws.com:5000/get_session?SessionId=${session}&username=${user}&guesserUser=${guesser}`, {
+    headers: { 'Content-Type': 'application/json'}
+})
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data);
+    selectedWord = data.Word;
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+
+// fetch(`http://ec2-54-82-112-252.compute-1.amazonaws.com:5000/get_session`, {
+//     method: 'GET',
 //     headers: {
 //         'Content-Type': 'application/json'
-//     }
+//     },
+//     body: JSON.stringify({
+//         SessionId: session,
+//         username: user,
+//         guesserUser: guesser
+//     })
 // })
-.then((response) => response.json())
-.then((data) => {
-    console.log(data)
-    selectedWord = data.Word
-})
+// .then((response) => response.json())
+// .then((data) => {
+//     console.log(data)
+//     selectedWord = data.Word
+// })
 
 function GamePlayer() {
     const [playable, setPlayable] = useState(true);
