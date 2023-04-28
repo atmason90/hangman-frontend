@@ -11,6 +11,7 @@ import GamePlayer from './components/Game/GamePlayer/GamePlayer';
 import { LandingPage } from './components/LandingPage/LandingPage';
 import { Leaderboard } from './components/Leaderboard/Leaderboard';
 
+
 // need to add conditional statement to jsx - if not logged in, show login page, otherwise show landing page. (will need useState and useEffect)
 
 function App() {
