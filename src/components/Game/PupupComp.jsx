@@ -40,7 +40,7 @@ const PopupComp = ({correctLetters, wrongLetters, selectedWord, setPlayable, pla
   }
 
   const redirectToLandingPage = () => {
-    navigate('/landingpage')
+    navigate('/')
   }
 
   return (

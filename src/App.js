@@ -23,7 +23,7 @@ function App() {
         <Route path='/compgame' element={<GameComputer/>}/>
         <Route path='/vsgame' element={<GamePlayer/>}/>
         <Route path='/leaderboard' element={<Leaderboard/>}/>
-        <Route path='/landingpage' element={<LandingPage/>}/>
+        <Route path='/' element={<LandingPage/>}/>
       </Routes>
     </div>
   );
