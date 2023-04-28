@@ -2,12 +2,11 @@ import React, { useEffect } from 'react';
 import { checkWin } from '../../helpers/helpers';
 import { useNavigate } from 'react-router-dom'
 
-const PopupComp = ({correctLetters, wrongLetters, selectedWord, setPlayable, playAgain, score}) => {
+const PopupComp = ({correctLetters, wrongLetters, selectedWord, setPlayable, playAgain, score, user}) => {
   let finalMessage = '';
   let finalMessageRevealWord = '';
   let playable = true;
-  let user = localStorage.getItem('username')
-
+  
   if( checkWin(correctLetters, wrongLetters, selectedWord) === 'win' ) {
     finalMessage = 'Congratulations! You won! 😃 \nYour final score is ' + score;
     playable = false;

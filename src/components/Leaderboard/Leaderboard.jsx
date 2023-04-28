@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { ListItem } from "./ListItem";
 import axios from "axios";
+import { Link } from 'react-router-dom'
 
 export const Leaderboard = () => {
     const API = "http://ec2-54-82-112-252.compute-1.amazonaws.com:5000/leaderboard";
@@ -30,6 +31,9 @@ export const Leaderboard = () => {
                     {data.map(row => <ListItem key={row.id} row={row} />)}
                 </tbody>
             </table>
+            <div style={{ textAlign: 'center', marginTop: '30px'}}>
+                <Link to='/'><button style={{ fontSize: '20px'}}>Go Home</button></Link>
+            </div>
         </div>
     );
     
