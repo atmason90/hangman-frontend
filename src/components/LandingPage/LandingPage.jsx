@@ -106,11 +106,13 @@ export const LandingPage = () => {
                 <button onClick={() => setVsgame(true)}>Friend</button>
                 <button onClick={handleLogout}>Logout</button>
 
-               
+               <div style={{ marginTop: '20px'}}>
                 {vsgame && gameMenu()}
                 {createGameSelected && createGame()}
                 {sessionId !== null && displaySessionId()}
                 {joinGameSelected && joinGame()}
+               </div>
+                
 
             </div>
             <br />
