@@ -13,12 +13,19 @@ export const LandingPage = () => {
         return username !== null;
     }
 
+    const handleLogout = () => {
+        localStorage.removeItem("username");
+        localStorage.removeItem("userid");
+        window.location.href="/";
+    }
+
     const gamePage = () => {
         return (
             <div>
                 Choose your opponent
                 <Link to="/compgame"><button>Computer</button></Link>
-                <Link to="/compgame"><button>Friend</button></Link>
+                <Link to="/vsgame"><button>Friend</button></Link>
+                <button onClick={handleLogout}>Logout</button>
             </div>
         );
     }

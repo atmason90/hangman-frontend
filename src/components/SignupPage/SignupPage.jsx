@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export const SignupPage = () => {
     const handleSubmit = (event) => {
@@ -7,14 +8,13 @@ export const SignupPage = () => {
 
         const { uname, pass, fname } = document.forms[0];
 
-        axios.post("http://ec2-54-82-112-252.compute-1.amazonaws.com:5000/create_user", {
-            "username": uname.value,
-            "password": pass.value,
-            "full_name": fname.value
-        }).then(response => response.json()).then(data => {
-            localStorage.setItem("username", data.username);
-            localStorage.setItem("userid", data.UserId);
-            localStorage.setItem("fullname", data.full_name);
+        axios.post(`http://ec2-54-82-112-252.compute-1.amazonaws.com:5000/create_user?username=${uname.value}&password=${pass.value}&full_name=${fname.value}`).then(response => {
+            if(response.status == 200) {    
+                localStorage.setItem("username", response.data.username);
+                localStorage.setItem("userid", response.data.UserId);
+                localStorage.setItem("fullname", response.data.full_name);
+                window.location.href="/";
+            }
         }).catch(err => console.error(err));
     };
 
@@ -37,6 +37,7 @@ export const SignupPage = () => {
                     <input type="submit" />
                 </div>
             </form>
+            Existing user? <Link to="/login">Login</Link>
         </div>
     );
 }

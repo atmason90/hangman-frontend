@@ -12,10 +12,7 @@ export const LoginPage = () => {
 
         const { uname, pass } = document.forms[0];
 
-        axios.post("http://ec2-54-82-112-252.compute-1.amazonaws.com:5000/login", {
-            "username": uname.value,
-            "password": pass.value
-        }).then(res => {
+        axios.post(`http://ec2-54-82-112-252.compute-1.amazonaws.com:5000/login?username=${uname.value}&password=${pass.value}`).then(res => {
             if(res.status == 200) {
                 localStorage.setItem("username", res.data.username);
                 localStorage.setItem("userid", res.data.UserId);
