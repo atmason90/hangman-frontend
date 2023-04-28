@@ -19,26 +19,28 @@ export const SignupPage = () => {
     };
 
     return (
-        <div>
+        <div style={{ textAlign: 'center'}}>
             <h2>Hangman Game!</h2>
             <form onSubmit={handleSubmit}>
                 <div>
                     <label>Username </label>
                     <input type="text" name="uname" required />
                 </div>
-                <div>
+                <div style={{ marginTop: '10px'}}>
                     <label>Password </label>
                     <input type="password" name="pass" required />
                 </div>
-                <div>
+                <div style={{ marginTop: '10px'}}>
                     <label>Full Name </label>
                     <input type="text" name="fname" required />
                 </div>
-                <div>
+                <div style={{ marginTop: '10px'}}>
                     <button type="submit">Submit</button>
                 </div>
             </form>
+            <div style={{ marginTop: '10px'}}>
             Existing user? <Link to="/login">Login</Link>
+            </div>
         </div>
     );
 }
