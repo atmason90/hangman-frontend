@@ -25,6 +25,7 @@ function GameComputer() {
   const [correctLetters, setCorrectLetters] = useState([]);
   const [wrongLetters, setWrongLetters] = useState([]);
   const [showNotification, setShowNotification] = useState(false);
+  const [score, setScore] = useState(0)
 
   useEffect(() => {
     const handleKeydown = (event) => {
@@ -34,6 +35,7 @@ function GameComputer() {
         if (selectedWord.includes(letter)) {
           if (!correctLetters.includes(letter)) {
             setCorrectLetters((currentLetters) => [...currentLetters, letter]);
+            setScore((currentScore) => currentScore + 25)
           } else {
             show(setShowNotification);
           }
@@ -53,7 +55,7 @@ function GameComputer() {
 
   function playAgain() {
     setPlayable(true);
-
+    setScore(0)
     // Empty Arrays
     setCorrectLetters([]);
     setWrongLetters([]);
@@ -76,6 +78,7 @@ function GameComputer() {
         selectedWord={selectedWord}
         setPlayable={setPlayable}
         playAgain={playAgain}
+        score={score}
       />
       <Notification showNotification={showNotification} />
     </>
