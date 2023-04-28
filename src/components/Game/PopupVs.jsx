@@ -48,7 +48,7 @@ const PopupVs = ({correctLetters, wrongLetters, selectedWord, setPlayable, score
   }
 
   const redirectToLandingPage = () => {
-    navigate('/landingpage')
+    navigate('/')
   }
 
   return (

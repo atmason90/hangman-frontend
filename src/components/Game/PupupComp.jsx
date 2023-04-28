@@ -6,6 +6,7 @@ const PopupComp = ({correctLetters, wrongLetters, selectedWord, setPlayable, pla
   let finalMessage = '';
   let finalMessageRevealWord = '';
   let playable = true;
+  console.log(user)
   
   if( checkWin(correctLetters, wrongLetters, selectedWord) === 'win' ) {
     finalMessage = 'Congratulations! You won! 😃 \nYour final score is ' + score;
@@ -19,7 +20,8 @@ const PopupComp = ({correctLetters, wrongLetters, selectedWord, setPlayable, pla
         Score: score,
         Status: 'win'
       })
-    })
+    }).then((response) => response.json())
+    .then((data) => console.log(data))
   } else if( checkWin(correctLetters, wrongLetters, selectedWord) === 'lose' ) {
     finalMessage = 'Unfortunately you lost. 😕';
     finalMessageRevealWord = `...the word was: ${selectedWord}`;
@@ -33,7 +35,8 @@ const PopupComp = ({correctLetters, wrongLetters, selectedWord, setPlayable, pla
         Score: 0,
         Status: 'lose'
       })
-    })
+    }).then((response) => response.json())
+    .then((data) => console.log(data))
   }
 
   useEffect(() => {
@@ -47,7 +50,7 @@ const PopupComp = ({correctLetters, wrongLetters, selectedWord, setPlayable, pla
   }
 
   const redirectToLandingPage = () => {
-    navigate('/landingpage')
+    navigate('/')
   }
 
   return (
