@@ -2,13 +2,13 @@ import React, { useEffect } from 'react';
 import { checkWin } from '../../helpers/helpers';
 import { useNavigate } from 'react-router-dom'
 
-const PopupVs = ({correctLetters, wrongLetters, selectedWord, setPlayable}) => {
+const PopupVs = ({correctLetters, wrongLetters, selectedWord, setPlayable, score}) => {
   let finalMessage = '';
   let finalMessageRevealWord = '';
   let playable = true;
 
   if( checkWin(correctLetters, wrongLetters, selectedWord) === 'win' ) {
-    finalMessage = 'Congratulations! You won! 😃';
+    finalMessage = 'Congratulations! You won! 😃\nYour final score is' + score;
     playable = false;
   } else if( checkWin(correctLetters, wrongLetters, selectedWord) === 'lose' ) {
     finalMessage = 'Unfortunately you lost. 😕';

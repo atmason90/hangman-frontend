@@ -14,26 +14,7 @@ function GamePlayer() {
   const [wrongLetters, setWrongLetters] = useState([]);
   const [showNotification, setShowNotification] = useState(false);
   const [selectedWord, setSelectedWord] = useState("");
-
-  // get info required to get_session
-
-  // const user = 'johndoe'
-  // const guesser = 'david'
-  // const session = 6
-
-  // fetch(`http://ec2-54-82-112-252.compute-1.amazonaws.com:5000/get_session?SessionId=${session}&username=${user}&guesserUser=${guesser}`, {
-  //     method: 'GET',
-  //     headers: { 'Content-Type': 'application/json'}
-  // })
-  // .then((response) => response.json())
-  // .then((data) => {
-  //     console.log(data);
-  //     setSelectedWord = data.Word;
-  //     console.log(selectedWord)
-  // })
-  // .catch((error) => {
-  //     console.error('Error:', error);
-  // });
+  const [score, setScore] = useState(0)
 
   useEffect(() => {
     const user = "johndoe";
@@ -66,6 +47,7 @@ function GamePlayer() {
         if (selectedWord.includes(letter)) {
           if (!correctLetters.includes(letter)) {
             setCorrectLetters((currentLetters) => [...currentLetters, letter]);
+            setScore((currentScore) => currentScore + 25)
           } else {
             show(setShowNotification);
           }
@@ -96,6 +78,7 @@ function GamePlayer() {
         wrongLetters={wrongLetters}
         selectedWord={selectedWord}
         setPlayable={setPlayable}
+        score={score}
       />
       <Notification showNotification={showNotification} />
     </>
