@@ -1,7 +1,7 @@
 {
   "name": "hangman-frontend",
   "version": "0.1.0",
-  "homepage": "https://atmason90.github.io/hangman-frontend/",
+  "homepage": "https://atmason90.github.io/hangman-frontend/landingpage",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.6",

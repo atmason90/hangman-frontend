@@ -38,7 +38,7 @@ const PopupVs = ({correctLetters, wrongLetters, selectedWord, setPlayable, score
   }
 
   const redirectToLandingPage = () => {
-    navigate('/hangman-frontend')
+    navigate('/landingpage')
   }
 
   return (
