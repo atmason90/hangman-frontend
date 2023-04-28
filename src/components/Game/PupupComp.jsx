@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { checkWin } from '../../helpers/helpers';
+import { useNavigate } from 'react-router-dom'
 
 const PopupComp = ({correctLetters, wrongLetters, selectedWord, setPlayable, playAgain, score}) => {
   let finalMessage = '';
@@ -19,6 +20,16 @@ const PopupComp = ({correctLetters, wrongLetters, selectedWord, setPlayable, pla
     setPlayable(playable);
   });
 
+  const navigate = useNavigate()
+
+  const redirectToLeaderboard = () => {
+    navigate('/leaderboard')
+  }
+
+  const redirectToLandingPage = () => {
+    navigate('/landingpage')
+  }
+
   return (
     <div className="popup-container" style={finalMessage !== '' ? {display:'flex'} : {}}>
       <div className="popup">
@@ -26,6 +37,8 @@ const PopupComp = ({correctLetters, wrongLetters, selectedWord, setPlayable, pla
         <h3>{finalMessageRevealWord}</h3>
         {/* need this to say view leaderboard and go to the leaderboard component */}
         <button onClick={playAgain}>Play Again</button>
+        <button onClick={redirectToLeaderboard}>View Leaderboard</button>
+        <button onClick={redirectToLandingPage}>Go Home</button>
       </div>
     </div>
   )
