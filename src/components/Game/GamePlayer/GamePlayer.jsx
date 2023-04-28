@@ -3,7 +3,7 @@ import Header from "../Header";
 import Figure from "../Figure";
 import WrongLetters from "../WrongLetters";
 import Word from "../Word";
-import Popup from "../PupupComp";
+import PopupVs from "../PopupVs";
 import Notification from "../Notification";
 import { showNotification as show, checkWin } from "../../../helpers/helpers";
 // import axios from 'axios'
@@ -91,7 +91,7 @@ function GamePlayer() {
         <WrongLetters wrongLetters={wrongLetters} />
         <Word selectedWord={selectedWord} correctLetters={correctLetters} />
       </div>
-      <Popup
+      <PopupVs
         correctLetters={correctLetters}
         wrongLetters={wrongLetters}
         selectedWord={selectedWord}

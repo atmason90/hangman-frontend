@@ -8,6 +8,8 @@ import { SignupPage } from './components/SignupPage/SignupPage';
 import GameComputer from './components/Game/GameComputer/GameComputer';
 // import GameComputer from './components/Game/GameComputer/GameComputer';
 import GamePlayer from './components/Game/GamePlayer/GamePlayer';
+import { Leaderboard } from './components/Leaderboard/Leaderboard';
+// import { LandingPage } from './components/LandingPage/LandingPage';
 
 // need to add conditional statement to jsx - if not logged in, show login page, otherwise show landing page. (will need useState and useEffect)
 
@@ -19,6 +21,8 @@ function App() {
         <Route path='/signup' element={<SignupPage/>}/>
         <Route path='/compgame' element={<GameComputer/>}/>
         <Route path='/vsgame' element={<GamePlayer/>}/>
+        <Route path='/leaderboard' element={<Leaderboard/>}/>
+        {/* <Route path='/landingpage' element={<LandingPage/>}/> */}
       </Routes>
     </div>
   );
