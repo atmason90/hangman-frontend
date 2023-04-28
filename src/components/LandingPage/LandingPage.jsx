@@ -50,7 +50,7 @@ export const LandingPage = () => {
         }
         return (
             <>
-                <form onSubmit={handleGameCreate}>
+                <form style={{ marginTop: '20px'}} onSubmit={handleGameCreate}>
                     <label htmlFor="word">Enter word to be guessed: </label>
                     <input name="word"/>
                     <input type="submit" />
@@ -99,14 +99,14 @@ export const LandingPage = () => {
     const gamePage = () => {
         return (
             <>
-            <div>
+            <div style={{ textAlign: 'center'}}>
                 <h2>Hangman Game!</h2>
                 <h4>Choose your opponent</h4>
                 <Link to="/compgame"><button>Computer</button></Link>
                 <button onClick={() => setVsgame(true)}>Friend</button>
                 <button onClick={handleLogout}>Logout</button>
 
-               <div style={{ marginTop: '20px'}}>
+               <div style={{ marginTop: '20px', textAlign: 'center'}}>
                 {vsgame && gameMenu()}
                 {createGameSelected && createGame()}
                 {sessionId !== null && displaySessionId()}

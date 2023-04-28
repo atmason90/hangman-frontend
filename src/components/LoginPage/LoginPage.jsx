@@ -29,7 +29,7 @@ export const LoginPage = () => {
     };
 
     return (
-        <div>
+        <div style={{ textAlign: 'center'}}>
             <h2>Hangman Game!</h2>
             {errorMsg !== null && (<h2 style={{color: "red"}}>{errorMsg}</h2>)}
             <form onSubmit={handleSubmit}>
@@ -37,15 +37,15 @@ export const LoginPage = () => {
                     <label>Username </label>
                     <input type="text" name="uname" required />
                 </div>
-                <div>
+                <div style={{ marginTop: '5px'}}>
                     <label>Password </label>
                     <input type="password" name="pass" required />
                 </div>
-                <div>
+                <div style={{ marginTop: '10px'}}>
                     <input type="submit" />
                 </div>
             </form>
-            <div>
+            <div style={{ marginTop: '10px'}}>
                 New here? <Link to="/signup">Signup</Link>
             </div>
         </div>
