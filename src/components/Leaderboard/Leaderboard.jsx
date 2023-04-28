@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { ListItem } from "./ListItem";
 import axios from "axios";
+import { Link } from 'react-router-dom'
 
 export const Leaderboard = () => {
     const API = "http://ec2-54-82-112-252.compute-1.amazonaws.com:5000/leaderboard";
@@ -16,24 +17,24 @@ export const Leaderboard = () => {
 
     return (
         <div>
-            <ul style={{listStyle: "none"}}>
-                <li style={{
-                    display: "flex",
-                    alignItems: "center",
-                    fontWeight: "bold"
-                }}>
-                <span style={{marginLeft: "10px"}}>Username</span>
-                <span style={{fontFamily: "monospace", marginLeft: "10px"}}>Total games</span>
-                <span style={{fontFamily: "monospace", marginLeft: "10px"}}>Wins</span>
-                <span style={{fontFamily: "monospace", marginLeft: "10px"}}>Score</span>
-                </li>
-                {
-                    data.map(row => <ListItem
-                        key={row.id}
-                        row={row}
-                    />)
-                }
-            </ul>
+            <h2 style={{ textAlign: "center"}}>Leaderboard: Top 10 Players</h2>
+            <table>
+                <thead>
+                    <tr style={{ fontWeight: "bold", borderBottom: "4px solid white", fontSize: "30px" }}>
+                        <th style={{ fontFamily: "monospace", padding: "5px", borderBottom: '1px solid white', }}>Username</th>
+                        <th style={{ fontFamily: "monospace", padding: "5px", borderBottom: '1px solid white', }}>Games</th>
+                        <th style={{ fontFamily: "monospace", padding: "5px", borderBottom: '1px solid white', }}>Wins</th>
+                        <th style={{ fontFamily: "monospace", padding: "5px", borderBottom: '1px solid white', }}>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {data.map(row => <ListItem key={row.id} row={row} />)}
+                </tbody>
+            </table>
+            <div style={{ textAlign: 'center', marginTop: '30px'}}>
+                <Link to='/'><button style={{ fontSize: '20px'}}>Go Home</button></Link>
+            </div>
         </div>
     );
+    
 }

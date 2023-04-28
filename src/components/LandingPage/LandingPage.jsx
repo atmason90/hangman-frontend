@@ -98,11 +98,13 @@ export const LandingPage = () => {
 
     const gamePage = () => {
         return (
+            <>
             <div>
-                Choose your opponent
+                <h4>Choose your opponent</h4>
                 <Link to="/compgame"><button>Computer</button></Link>
                 <button onClick={() => setVsgame(true)}>Friend</button>
                 <button onClick={handleLogout}>Logout</button>
+
                 <div>
                     Check your position on the <Link to="/leaderboard">Leaderboard</Link>
                 </div>
@@ -110,7 +112,13 @@ export const LandingPage = () => {
                 {createGameSelected && createGame()}
                 {sessionId !== null && displaySessionId()}
                 {joinGameSelected && joinGame()}
+
             </div>
+            <br />
+            <div>
+              Check your position on the <Link to="/leaderboard">Leaderboard</Link>
+            </div>
+            </>
         );
     }
 

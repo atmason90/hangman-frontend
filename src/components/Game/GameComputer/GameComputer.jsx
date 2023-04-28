@@ -27,6 +27,8 @@ function GameComputer() {
   const [showNotification, setShowNotification] = useState(false);
   const [score, setScore] = useState(0)
 
+  let user = localStorage.getItem('username')
+
   useEffect(() => {
     const handleKeydown = (event) => {
       const { key, keyCode } = event;
@@ -80,6 +82,7 @@ function GameComputer() {
         setPlayable={setPlayable}
         playAgain={playAgain}
         score={score}
+        user={user}
       />
       <Notification showNotification={showNotification} />
     </>
