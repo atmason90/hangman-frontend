@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/hangman-frontend/landingpage/static/css/main.0fc52f55.css",
-    "main.js": "/hangman-frontend/landingpage/static/js/main.bbb03dc3.js",
-    "static/js/787.50b8fecf.chunk.js": "/hangman-frontend/landingpage/static/js/787.50b8fecf.chunk.js",
-    "index.html": "/hangman-frontend/landingpage/index.html",
-    "main.0fc52f55.css.map": "/hangman-frontend/landingpage/static/css/main.0fc52f55.css.map",
-    "main.bbb03dc3.js.map": "/hangman-frontend/landingpage/static/js/main.bbb03dc3.js.map",
-    "787.50b8fecf.chunk.js.map": "/hangman-frontend/landingpage/static/js/787.50b8fecf.chunk.js.map"
+    "main.css": "/hangman-frontend/static/css/main.0fc52f55.css",
+    "main.js": "/hangman-frontend/static/js/main.24045018.js",
+    "static/js/787.50b8fecf.chunk.js": "/hangman-frontend/static/js/787.50b8fecf.chunk.js",
+    "index.html": "/hangman-frontend/index.html",
+    "main.0fc52f55.css.map": "/hangman-frontend/static/css/main.0fc52f55.css.map",
+    "main.24045018.js.map": "/hangman-frontend/static/js/main.24045018.js.map",
+    "787.50b8fecf.chunk.js.map": "/hangman-frontend/static/js/787.50b8fecf.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0fc52f55.css",
-    "static/js/main.bbb03dc3.js"
+    "static/js/main.24045018.js"
   ]
 }
