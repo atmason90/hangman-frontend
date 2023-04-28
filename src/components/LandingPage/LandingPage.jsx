@@ -105,9 +105,7 @@ export const LandingPage = () => {
                 <button onClick={() => setVsgame(true)}>Friend</button>
                 <button onClick={handleLogout}>Logout</button>
 
-                <div>
-                    Check your position on the <Link to="/leaderboard">Leaderboard</Link>
-                </div>
+               
                 {vsgame && gameMenu()}
                 {createGameSelected && createGame()}
                 {sessionId !== null && displaySessionId()}

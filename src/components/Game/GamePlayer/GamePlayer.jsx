@@ -16,8 +16,9 @@ function GamePlayer() {
   const [selectedWord, setSelectedWord] = useState("");
   const [score, setScore] = useState(0)
 
+  const user = localStorage.getItem("creator_name");
+  
   useEffect(() => {
-    const user = localStorage.getItem("creator_name");
     const guesser = localStorage.getItem("username");
     const session = localStorage.getItem("sessionId");
 
@@ -80,6 +81,7 @@ function GamePlayer() {
         selectedWord={selectedWord}
         setPlayable={setPlayable}
         score={score}
+        user={user}
       />
       <Notification showNotification={showNotification} />
     </>
