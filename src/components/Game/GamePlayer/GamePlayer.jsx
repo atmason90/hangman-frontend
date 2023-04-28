@@ -17,9 +17,9 @@ function GamePlayer() {
   const [score, setScore] = useState(0)
 
   useEffect(() => {
-    const user = "johndoe";
-    const guesser = "david";
-    const session = 6;
+    const user = localStorage.getItem("creator_name");
+    const guesser = localStorage.getItem("username");
+    const session = localStorage.getItem("sessionId");
 
     fetch(
       `http://ec2-54-82-112-252.compute-1.amazonaws.com:5000/get_session?SessionId=${session}&username=${user}&guesserUser=${guesser}`,

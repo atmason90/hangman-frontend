@@ -64,12 +64,15 @@ export const LandingPage = () => {
             e.preventDefault();
             const { friendname, sessionId } = document.forms[0];
 
-            const current_username = localStorage.getItem("username");
 
-            axios.get(`http://ec2-54-82-112-252.compute-1.amazonaws.com:5000/get_session?SessionId=${sessionId.value}&username=${friendname.value}&guesserUser=${current_username}`)
-                .then(response => {
-                    localStorage.setItem("selectedWord", response.data.Word);
-                })
+            localStorage.setItem("sessionId", sessionId.value);
+            localStorage.setItem("creator_name", friendname.value);
+
+            // axios.get(`http://ec2-54-82-112-252.compute-1.amazonaws.com:5000/get_session?SessionId=${sessionId.value}&username=${friendname.value}&guesserUser=${current_username}`)
+            //     .then(response => {
+            //         localStorage.setItem("selectedWord", response.data.Word);
+            //     })
+            window.location.href="/vsgame";
         }
         return (
             <>
