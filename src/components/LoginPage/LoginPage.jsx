@@ -30,6 +30,7 @@ export const LoginPage = () => {
 
     return (
         <div>
+            <h2>Hangman Game!</h2>
             {errorMsg !== null && (<h2 style={{color: "red"}}>{errorMsg}</h2>)}
             <form onSubmit={handleSubmit}>
                 <div>

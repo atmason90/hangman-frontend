@@ -76,12 +76,12 @@ export const LandingPage = () => {
         }
         return (
             <>
-                <form onSubmit={handleJoinGame}>
+                <form style={{ marginTop: '20px'}} onSubmit={handleJoinGame}>
                     <label htmlFor="friendname">Enter your friend's username: </label>
                     <input name="friendname"/><br/>
                     <label htmlFor="name">Enter the session-id: </label>
                     <input name="sessionId"/><br/>
-                    <input type="submit" />
+                    <input style={{ marginTop: '10px'}} type="submit" />
                 </form>
             </>
         )
@@ -100,6 +100,7 @@ export const LandingPage = () => {
         return (
             <>
             <div>
+                <h2>Hangman Game!</h2>
                 <h4>Choose your opponent</h4>
                 <Link to="/compgame"><button>Computer</button></Link>
                 <button onClick={() => setVsgame(true)}>Friend</button>

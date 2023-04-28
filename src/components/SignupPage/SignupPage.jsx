@@ -20,6 +20,7 @@ export const SignupPage = () => {
 
     return (
         <div>
+            <h2>Hangman Game!</h2>
             <form onSubmit={handleSubmit}>
                 <div>
                     <label>Username </label>
