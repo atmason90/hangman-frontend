@@ -4,17 +4,17 @@ export const ListItem = ({row}) => {
         console.log(username == current)
         return username == current;
     }
+
     return (
-        <li style={{
-            display: "flex",
-            alignItems: "center",
-            fontWeight: isCurrentUser(row.username) ? "bold" : "normal",
-            color: isCurrentUser(row.username) ? "red" : "white"
-        }}>
-          <span style={{marginLeft: "10px"}}>{row.username}</span>
-          <span style={{fontFamily: "monospace", marginLeft: "10px"}}>{row.num_games_played}</span>
-          <span style={{fontFamily: "monospace", marginLeft: "10px"}}>{row.num_wins}</span>
-          <span style={{fontFamily: "monospace", marginLeft: "10px"}}>{row.total_score}</span>
-        </li>
-      );
+      <tr style={{
+        fontWeight: isCurrentUser(row.username) ? "bold" : "normal",
+        color: isCurrentUser(row.username) ? "red" : "white",
+        fontSize: "20px"
+      }}>
+        <td style={{ fontFamily: "monospace", textAlign: "center"}}>{row.username}</td>
+        <td style={{ fontFamily: "monospace", textAlign: "center"}}>{row.num_games_played}</td>
+        <td style={{ fontFamily: "monospace", textAlign: "center"}}>{row.num_wins}</td>
+        <td style={{ fontFamily: "monospace", textAlign: "center"}}>{row.total_score}</td>
+      </tr>
+    );
 }
