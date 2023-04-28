@@ -75,6 +75,9 @@ function GamePlayer() {
         <WrongLetters wrongLetters={wrongLetters} />
         <Word selectedWord={selectedWord} correctLetters={correctLetters} />
       </div>
+      <div style={{ textAlign: 'center'}}>
+        <input type="text" placeholder="guess a letter" />
+      </div>
       <PopupVs
         correctLetters={correctLetters}
         wrongLetters={wrongLetters}
