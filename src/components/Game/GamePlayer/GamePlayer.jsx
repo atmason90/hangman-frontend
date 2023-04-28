@@ -14,6 +14,19 @@ const guesser = 'david'
 const session = 6
 let selectedWord;
 
+// -----------THIS WORKS------------
+// fetch('http://ec2-54-82-112-252.compute-1.amazonaws.com:5000/create_game', {
+//     method: 'POST',
+//     headers: { 'Content-Type': 'application/json'},
+//     body: JSON.stringify({
+//         username: 'johndoe',
+//         Word: 'hello'
+//     })
+// })
+// .then((response) => response.json())
+// .then((data) => console.log(data))
+// ----------------------------------
+
 // fetch('https://l6hxmsh3jd.execute-api.us-east-1.amazonaws.com/getLeaderBoard')
 // .then((response) => response.json())
 // .then((data) => {
@@ -21,6 +34,7 @@ let selectedWord;
 // })
 
 fetch(`http://ec2-54-82-112-252.compute-1.amazonaws.com:5000/get_session?SessionId=${session}&username=${user}&guesserUser=${guesser}`, {
+    method: 'GET',
     headers: { 'Content-Type': 'application/json'}
 })
   .then((response) => response.json())
