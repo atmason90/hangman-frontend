@@ -14,28 +14,6 @@ export const Leaderboard = () => {
             .catch(err => console.error(err));
     }, []);
 
-    // return (
-    //     <div>
-    //         <ul style={{listStyle: "none"}}>
-    //             <li style={{
-    //                 display: "flex",
-    //                 alignItems: "center",
-    //                 fontWeight: "bold"
-    //             }}>
-    //             <span style={{marginLeft: "10px"}}>Username</span>
-    //             <span style={{fontFamily: "monospace", marginLeft: "10px"}}>Total games</span>
-    //             <span style={{fontFamily: "monospace", marginLeft: "10px"}}>Wins</span>
-    //             <span style={{fontFamily: "monospace", marginLeft: "10px"}}>Score</span>
-    //             </li>
-    //             {
-    //                 data.map(row => <ListItem
-    //                     key={row.id}
-    //                     row={row}
-    //                 />)
-    //             }
-    //         </ul>
-    //     </div>
-    // );
     return (
         <div>
             <h2 style={{ textAlign: "center"}}>Leaderboard: Top 10 Players</h2>

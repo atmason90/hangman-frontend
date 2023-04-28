@@ -6,16 +6,35 @@ const PopupComp = ({correctLetters, wrongLetters, selectedWord, setPlayable, pla
   let finalMessage = '';
   let finalMessageRevealWord = '';
   let playable = true;
+  let user = localStorage.getItem('username')
 
   if( checkWin(correctLetters, wrongLetters, selectedWord) === 'win' ) {
     finalMessage = 'Congratulations! You won! 😃 \nYour final score is ' + score;
     playable = false;
     // add POST to add user score and status of win
+    fetch('http://ec2-54-82-112-252.compute-1.amazonaws.com:5000/add_user_score', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        guesserUser: user,
+        Score: score,
+        Status: 'win'
+      })
+    })
   } else if( checkWin(correctLetters, wrongLetters, selectedWord) === 'lose' ) {
     finalMessage = 'Unfortunately you lost. 😕';
     finalMessageRevealWord = `...the word was: ${selectedWord}`;
     playable = false;
     // add POST to add user score and status of lose
+    fetch('http://ec2-54-82-112-252.compute-1.amazonaws.com:5000/add_user_score', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        guesserUser: user,
+        Score: 0,
+        Status: 'lose'
+      })
+    })
   }
 
   useEffect(() => {
