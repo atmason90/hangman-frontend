@@ -74,8 +74,8 @@ function GameComputer() {
         <Figure wrongLetters={wrongLetters} />
         <WrongLetters wrongLetters={wrongLetters} />
         <Word selectedWord={selectedWord} correctLetters={correctLetters} />
-        {/* <input type="text" placeholder="guess a letter" /> */}
-        <div contentEditable={!playable} />
+        <input type="text" placeholder="guess a letter" />
+        {/* <div contentEditable={!playable} /> */}
       </div>
       <PopupComp
         correctLetters={correctLetters}
