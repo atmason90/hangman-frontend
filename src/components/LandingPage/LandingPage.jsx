@@ -5,4 +5,37 @@
     // play vs. another person
         // takes user to game component where they can view other players guesses in real time
 
+import { Link } from "react-router-dom";
         
+export const LandingPage = () => {
+    const isLoggedIn = () => {
+        let username = localStorage.getItem("username");
+        return username !== null;
+    }
+
+    const handleLogout = () => {
+        localStorage.removeItem("username");
+        localStorage.removeItem("userid");
+        window.location.href="/";
+    }
+
+    const gamePage = () => {
+        return (
+            <div>
+                Choose your opponent
+                <Link to="/compgame"><button>Computer</button></Link>
+                <Link to="/vsgame"><button>Friend</button></Link>
+                <button onClick={handleLogout}>Logout</button>
+                <div>
+                    Check your position on the <Link to="/leaderboard">Leaderboard</Link>
+                </div>
+            </div>
+        );
+    }
+
+    return (
+        <div>
+            {isLoggedIn() ? gamePage() : window.location.href="/login" }
+        </div>
+    );
+}

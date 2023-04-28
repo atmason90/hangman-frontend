@@ -1,16 +1,20 @@
 export const ListItem = ({row}) => {
     const isCurrentUser = (username) => {
-        let current = localStorage.getItem("current_username");
+        let current = localStorage.getItem("username");
+        console.log(username == current)
         return username == current;
     }
     return (
-        <li className="item" style={{
+        <li style={{
             display: "flex",
             alignItems: "center",
-            fontWeight: isCurrentUser(row.id) ? "bold" : "normal"
+            fontWeight: isCurrentUser(row.username) ? "bold" : "normal",
+            color: isCurrentUser(row.username) ? "red" : "white"
         }}>
-          <span className="item__name" style={{marginLeft: "10px"}}>{row.id}</span>
-          <span className="item__score" style={{fontFamily: "monospace", marginLeft: "10px"}}>{row.title}</span>
+          <span style={{marginLeft: "10px"}}>{row.username}</span>
+          <span style={{fontFamily: "monospace", marginLeft: "10px"}}>{row.num_games_played}</span>
+          <span style={{fontFamily: "monospace", marginLeft: "10px"}}>{row.num_wins}</span>
+          <span style={{fontFamily: "monospace", marginLeft: "10px"}}>{row.total_score}</span>
         </li>
       );
 }

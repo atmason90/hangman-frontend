@@ -1,27 +1,35 @@
 // This page will hold the component for the login/signup functionality
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, redirect } from "react-router-dom";
+import axios from "axios";
 
 export const LoginPage = () => {
+    const [errorMsg, setErrorMsg] = useState(null);
     const handleSubmit = (event) => {
         // Prevent page reload
         event.preventDefault();
+        setErrorMsg(null);
 
         const { uname, pass } = document.forms[0];
 
-        fetch("http://ec2-54-82-112-252.compute-1.amazonaws.com:5000/login", {
-            method: "post",
-            body: {
-                "username": uname.value,
-                "password": pass.value
+        axios.post(`http://ec2-54-82-112-252.compute-1.amazonaws.com:5000/login?username=${uname.value}&password=${pass.value}`).then(res => {
+            if(res.status == 200) {
+                localStorage.setItem("username", res.data.username);
+                localStorage.setItem("userid", res.data.UserId);
+                window.location.href="/";
             }
-        }).then(response => response.json()).then(data => {
-            localStorage.setItem("username", data.username);
-            localStorage.setItem("userid", data.UserId);
+        }).catch(err => {
+            if(err.response.status == 400) {
+                setErrorMsg("Invalid credentials! Please try again")
+            } else {
+                console.error(err)
+            }
         })
     };
 
     return (
         <div>
+            {errorMsg !== null && (<h2 style={{color: "red"}}>{errorMsg}</h2>)}
             <form onSubmit={handleSubmit}>
                 <div>
                     <label>Username </label>
